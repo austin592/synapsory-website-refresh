@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>The Synapsory — Rest, Regulation & Renewal for Every Family</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <style>
+ *, *::before, *::after { box-sizing: border-box; }
+ body { min-height: 100vh; margin: 0; line-height: 1.6; -webkit-font-smoothing: antialiased; text-size-adjust: none; }
+ h1,h2,h3,h4,h5,h6,p,figure,blockquote,dl,dd { margin: 0; }
+ img, picture, video, canvas, svg { display: block; max-width: 100%; }
+ p,h1,h2,h3,h4,h5,h6 { overflow-wrap: break-word; }
+ input, button, textarea, select { font: inherit; }
+ ul, ol { margin: 0; padding: 0; }
+ a { color: inherit; }
+ :target { scroll-margin-block: 6rem; }
+ @media (prefers-reduced-motion: reduce) {
+ *, *::before, *::after {
+ animation-duration: 0.01ms !important;
+ transition-duration: 0.01ms !important;
+ scroll-behavior: auto !important;
+ }
+ }
+ :root {
+ --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+ --font-body: 'Sora', system-ui, sans-serif;
+ --s0: 1.125rem; 
+ --s1: 1.3rem; 
+ --s2: 1.6rem; 
+ --s3: 2.1rem; 
+ --s4: 2.8rem; 
+ --s5: 3.75rem; 
+ --s6: 5rem; 
+ --space-2xs: 0.5rem;
+ --space-xs: 0.75rem;
+ --space-s: 1rem;
+ --space-m: 1.5rem;
+ --space-l: 2.5rem;
+ --space-xl: 3.5rem;
+ --space-2xl: 5rem;
+ --space-3xl: 7rem;
+ --space-4xl: 10rem;
+ --measure: 60ch;
+ --gap: 2rem;
+ --padding: clamp(1.5rem, 5vw, 5rem);
+ --green-50: #eef8ed;
+ --green-100: #d4f0d1;
+ --green-200: #a8e0a3;
+ --green-300: #7bc575;
+ --green-400: #5fb058;
+ --green-500: #469640;
+ --green-600: #357a32;
+ --green-700: #265e25;
+ --green-800: #1a4219;
+ --green-900: #0f2b10;
+ --blue-50: #eef5fb;
+ --blue-100: #d5e5f5;
+ --blue-200: #b3d1ec;
+ --blue-300: #8eb7e1;
+ --blue-400: #6a9dd6;
+ --blue-500: #4a83c4;
+ --blue-600: #3668a3;
+ --blue-700: #274f7e;
+ --blue-800: #1b3859;
+ --blue-900: #102238;
+ --yellow-50: #fffde6;
+ --yellow-100: #fff9b3;
+ --yellow-200: #fff680;
+ --yellow-300: #fff466;
+ --yellow-400: #e6db4d;
+ --yellow-500: #c4b830;
+ --yellow-600: #998f1a;
+ --red-50: #fde8ea;
+ --red-100: #f9bfc4;
+ --red-300: #ea1d2f;
+ --red-400: #d0192a;
+ --red-600: #8e101c;
+ --dark: #363537;
+ --white: #ffffff;
+ --off-white: #f7f9fc;
+ --cream: #fafbfd;
+ --neutral-100: #f3f4f6;
+ --neutral-200: #e5e7eb;
+ --neutral-300: #d1d5db;
+ --neutral-400: #9ca3af;
+ --neutral-500: #6b7280;
+ --neutral-600: #4b5563;
+ --neutral-700: #374151;
+ --neutral-800: #1f2937;
+ --neutral-900: #111827;
+ --text-primary: var(--neutral-900);
+ --text-secondary: var(--neutral-600);
+ --text-inverse: var(--white);
+ --surface: var(--white);
+ --surface-alt: var(--off-white);
+ --accent-green: var(--green-300);
+ --accent-blue: var(--blue-300);
+ --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+ --dur-fast: 150ms;
+ --dur-normal: 300ms;
+ --dur-slow: 500ms;
+ }
+ body {
+ font-family: var(--font-body);
+ font-size: var(--s0);
+ font-weight: 400;
+ color: var(--text-primary);
+ background: var(--surface);
+ }
+ h1, h2, h3, h4 {
+ font-family: var(--font-display);
+ font-weight: 700;
+ line-height: 1.1;
+ text-wrap: balance;
+ letter-spacing: -0.03em;
+ }
+ h1 { font-size: clamp(var(--s4), 7vw + 1rem, var(--s6)); }
+ h2 { font-size: clamp(var(--s3), 5vw + 0.5rem, var(--s5)); }
+ h3 { font-size: var(--s3); }
+ h4 {
+ font-size: var(--s1);
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: 0.08em;
+ }
+ p { max-inline-size: var(--measure); }
+ :focus-visible {
+ outline: 3px solid var(--accent-blue);
+ outline-offset: 3px;
+ border-radius: 4px;
+ }
+ .skip-link {
+ position: absolute; top: -100%; left: 1rem;
+ padding: 0.75rem 1.5rem;
+ background: var(--blue-800); color: var(--white);
+ font-size: var(--s0); font-weight: 600;
+ border-radius: 0 0 10px 10px;
+ z-index: 200; text-decoration: none;
+ }
+ .skip-link:focus { top: 0; }
+ .container {
+ max-inline-size: 1320px;
+ padding-inline: var(--padding);
+ margin-inline: auto;
+ }
+ .site-header {
+ position: sticky; top: 0; z-index: 100;
+ background: rgba(255,255,255,0.96);
+ backdrop-filter: blur(16px);
+ -webkit-backdrop-filter: blur(16px);
+ border-block-end: 1px solid var(--neutral-200);
+ padding-block: var(--space-s);
+ }
+ .header-inner {
+ display: flex; align-items: center; justify-content: space-between;
+ gap: var(--space-m);
+ }
+ .logo-link {
+ display: flex; align-items: center; text-decoration: none; flex-shrink: 0;
+ }
+ .logo-link img { height: 44px; width: auto; }
+ .main-nav {
+ display: flex; align-items: center; gap: var(--space-l);
+ list-style: none;
+ }
+ .main-nav a {
+ font-family: var(--font-display);
+ font-size: var(--s0); font-weight: 600;
+ text-decoration: none; color: var(--neutral-700);
+ padding: 0.35rem 0;
+ position: relative;
+ transition: color var(--dur-fast);
+ }
+ .main-nav a::after {
+ content: ''; position: absolute;
+ inset-inline: 0; bottom: -2px; height: 3px;
+ background: var(--accent-green); border-radius: 2px;
+ transform: scaleX(0);
+ transition: transform var(--dur-normal) var(--ease-out);
+ }
+ .main-nav a:hover { color: var(--green-700); }
+ .main-nav a:hover::after { transform: scaleX(1); }
+ .nav-toggle {
+ display: none; background: none; border: none;
+ padding: 0.75rem; cursor: pointer; color: var(--text-primary);
+ }
+ @media (max-width: 900px) {
+ .nav-toggle { display: block; }
+ .main-nav {
+ display: none; position: absolute;
+ top: 100%; left: 0; right: 0;
+ background: var(--white);
+ flex-direction: column; align-items: stretch;
+ padding: var(--space-m) var(--padding);
+ border-block-end: 2px solid var(--neutral-200);
+ box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+ }
+ .main-nav.is-open { display: flex; }
+ .main-nav a { padding: var(--space-s) 0; }
+ }
+ .btn {
+ display: inline-flex; align-items: center; gap: 0.5rem;
+ padding: 1rem 2.25rem;
+ font-family: var(--font-display);
+ font-size: var(--s0); font-weight: 700;
+ text-decoration: none; border-radius: 100px;
+ border: 3px solid transparent; cursor: pointer;
+ transition: all var(--dur-fast) var(--ease-out);
+ min-height: 56px; white-space: nowrap;
+ letter-spacing: -0.01em;
+ }
+ .btn--green {
+ background: var(--green-300); color: var(--green-900);
+ border-color: var(--green-300);
+ }
+ .btn--green:hover {
+ background: var(--green-400); border-color: var(--green-400);
+ box-shadow: 0 8px 24px rgba(123,197,117,0.35);
+ transform: translateY(-2px);
+ }
+ .btn--blue {
+ background: var(--blue-300); color: var(--blue-900);
+ border-color: var(--blue-300);
+ }
+ .btn--blue:hover {
+ background: var(--blue-400); border-color: var(--blue-400);
+ box-shadow: 0 8px 24px rgba(142,183,225,0.35);
+ transform: translateY(-2px);
+ }
+ .btn--dark {
+ background: var(--neutral-900); color: var(--white);
+ border-color: var(--neutral-900);
+ }
+ .btn--dark:hover {
+ background: var(--neutral-800); border-color: var(--neutral-800);
+ transform: translateY(-2px);
+ }
+ .btn--outline {
+ background: transparent; color: var(--green-700);
+ border-color: var(--green-300);
+ }
+ .btn--outline:hover {
+ background: var(--green-50);
+ border-color: var(--green-400);
+ }
+ .btn--outline-light {
+ background: transparent; color: var(--white);
+ border-color: rgba(255,255,255,0.4);
+ }
+ .btn--outline-light:hover {
+ background: rgba(255,255,255,0.1);
+ border-color: rgba(255,255,255,0.7);
+ }
+ .btn--yellow {
+ background: var(--yellow-300); color: var(--yellow-600);
+ border-color: var(--yellow-300);
+ }
+ .btn--yellow:hover {
+ background: var(--yellow-400); border-color: var(--yellow-400);
+ box-shadow: 0 8px 24px rgba(255,244,102,0.35);
+ transform: translateY(-2px);
+ }
+ .btn-group { display: flex; flex-wrap: wrap; gap: var(--space-m); }
+ .hero {
+ padding-block: var(--space-3xl) var(--space-2xl);
+ background: linear-gradient(160deg, var(--blue-50) 0%, var(--green-50) 50%, var(--white) 100%);
+ overflow: hidden;
+ }
+ .hero-grid {
+ display: grid;
+ grid-template-columns: 1fr;
+ gap: var(--space-xl);
+ align-items: center;
+ }
+ @media (min-width: 960px) {
+ .hero-grid { grid-template-columns: 1.15fr 1fr; gap: var(--space-3xl); }
+ }
+ .hero-content { max-inline-size: 640px; }
+ .hero-eyebrow {
+ display: inline-flex; align-items: center; gap: 0.6rem;
+ font-family: var(--font-display);
+ font-size: var(--s0); font-weight: 700;
+ text-transform: uppercase; letter-spacing: 0.06em;
+ color: var(--blue-500);
+ margin-block-end: var(--space-m);
+ }
+ .hero-eyebrow::before {
+ content: ''; display: block;
+ width: 40px; height: 3px;
+ background: linear-gradient(90deg, var(--blue-300), var(--green-300));
+ border-radius: 2px;
+ }
+ .hero h1 {
+ color: var(--neutral-900);
+ margin-block-end: var(--space-l);
+ }
+ .hero h1 span.green { color: var(--green-500); }
+ .hero h1 span.blue { color: var(--blue-500); }
+ .hero-body {
+ font-size: var(--s2); color: var(--text-secondary);
+ line-height: 1.55;
+ margin-block-end: var(--space-l);
+ max-inline-size: 48ch;
+ }
+ .hero-image-wrapper {
+ position: relative;
+ border-radius: 1.75rem;
+ overflow: hidden;
+ aspect-ratio: 4/5;
+ box-shadow:
+ 0 0 0 6px rgba(123,197,117,0.15),
+ 0 0 0 12px rgba(142,183,225,0.1),
+ 0 32px 72px rgba(17,24,39,0.12);
+ }
+ @media (min-width: 960px) {
+ .hero-image-wrapper { aspect-ratio: 3/4; }
+ }
+ .hero-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+ .hero-stat-badge {
+ position: absolute; bottom: var(--space-m); left: var(--space-m);
+ background: rgba(255,255,255,0.95);
+ backdrop-filter: blur(10px);
+ border-radius: 1rem;
+ padding: var(--space-s) var(--space-m);
+ box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+ }
+ .hero-stat-badge strong {
+ display: block;
+ font-family: var(--font-display);
+ font-size: var(--s3);
+ font-weight: 800;
+ color: var(--green-600);
+ line-height: 1;
+ letter-spacing: -0.03em;
+ }
+ .hero-stat-badge span {
+ font-size: var(--s0); color: var(--text-secondary); font-weight: 500;
+ }
+ .proof-bar {
+ padding-block: var(--space-l);
+ background: var(--white);
+ border-block-end: 1px solid var(--neutral-200);
+ }
+ .proof-bar-inner {
+ display: flex; flex-wrap: wrap;
+ justify-content: center; align-items: center;
+ gap: var(--space-m) var(--space-2xl);
+ text-align: center;
+ }
+ .proof-item {
+ display: flex; align-items: center; gap: var(--space-xs);
+ font-size: var(--s0); color: var(--text-secondary);
+ font-weight: 500;
+ }
+ .proof-item svg { color: var(--green-300); flex-shrink: 0; width: 22px; height: 22px; }
+ .problem {
+ padding-block: var(--space-4xl);
+ background: var(--white);
+ }
+ .problem-inner {
+ text-align: center;
+ max-inline-size: 860px;
+ margin-inline: auto;
+ }
+ .problem h4 { color: var(--blue-500); margin-block-end: var(--space-s); }
+ .problem h2 {
+ color: var(--neutral-900);
+ margin-block-end: var(--space-l);
+ }
+ .problem-body {
+ font-size: var(--s1); color: var(--text-secondary);
+ line-height: 1.7;
+ max-inline-size: 56ch; margin-inline: auto;
+ }
+ .services {
+ padding-block: var(--space-4xl);
+ background: var(--surface-alt);
+ }
+ .section-header {
+ text-align: center;
+ margin-block-end: var(--space-2xl);
+ }
+ .section-header h4 { color: var(--green-500); margin-block-end: var(--space-xs); }
+ .section-header h2 { color: var(--neutral-900); margin-block-end: var(--space-s); }
+ .section-header p {
+ font-size: var(--s1); color: var(--text-secondary);
+ max-inline-size: 50ch; margin-inline: auto;
+ }
+ .services-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: var(--gap);
+ }
+ @media (max-width: 900px) {
+ .services-grid { grid-template-columns: 1fr; max-inline-size: 520px; margin-inline: auto; }
+ }
+ .service-card {
+ background: var(--white);
+ border-radius: 1.5rem;
+ overflow: hidden;
+ box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+ transition: box-shadow var(--dur-normal) var(--ease-out),
+ transform var(--dur-normal) var(--ease-out);
+ }
+ .service-card:hover {
+ box-shadow: 0 20px 56px rgba(17,24,39,0.1);
+ transform: translateY(-6px);
+ }
+ .service-card-img {
+ aspect-ratio: 16/10; overflow: hidden;
+ background: var(--neutral-200);
+ }
+ .service-card-img img {
+ width: 100%; height: 100%; object-fit: cover;
+ transition: transform var(--dur-slow) var(--ease-out);
+ }
+ .service-card:hover .service-card-img img { transform: scale(1.05); }
+ .service-card-body { padding: var(--space-l) var(--space-l) var(--space-xl); }
+ .service-card-body h3 {
+ color: var(--neutral-900);
+ margin-block-end: var(--space-s);
+ letter-spacing: -0.02em;
+ }
+ .service-card-body p {
+ font-size: var(--s0); color: var(--text-secondary);
+ margin-block-end: var(--space-l);
+ line-height: 1.65;
+ }
+ .service-card-body .btn { width: 100%; justify-content: center; }
+ .card-green .service-card-img { border-bottom: 4px solid var(--green-300); }
+ .card-blue .service-card-img { border-bottom: 4px solid var(--blue-300); }
+ .card-mixed .service-card-img { border-bottom: 4px solid; border-image: linear-gradient(90deg, var(--green-300), var(--blue-300)) 1; }
+ .kits-detail {
+ padding-block: var(--space-4xl);
+ background: var(--white);
+ }
+ .kits-grid {
+ display: grid; grid-template-columns: 1fr 1fr;
+ gap: var(--space-2xl); align-items: start;
+ }
+ @media (max-width: 900px) { .kits-grid { grid-template-columns: 1fr; } }
+ .product-card {
+ background: var(--green-50); border-radius: 1.25rem;
+ padding: var(--space-l); margin-block-end: var(--space-m);
+ border-left: 5px solid var(--green-300);
+ }
+ .product-card h3 { font-size: var(--s2); margin-block-end: var(--space-xs); }
+ .product-price {
+ font-family: var(--font-display); font-size: var(--s2); font-weight: 800;
+ color: var(--green-600); margin-block-end: var(--space-xs);
+ }
+ .product-card p { font-size: var(--s0); color: var(--text-secondary); line-height: 1.65; }
+ .kit-images {
+ display: flex; flex-direction: column;
+ gap: var(--space-s);
+ }
+ .kit-images img {
+ width: 100%; object-fit: cover; border-radius: 1.25rem;
+ box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+ }
+ .kit-images-row {
+ display: grid; grid-template-columns: 1fr 1fr;
+ gap: var(--space-s);
+ }
+ .kit-images-row img {
+ width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 1.25rem;
+ box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+ }
+ .video-card {
+ display: block; position: relative;
+ border-radius: 1.25rem; overflow: hidden;
+ background: var(--neutral-900);
+ box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+ transition: box-shadow var(--dur-normal) var(--ease-out), transform var(--dur-normal) var(--ease-out);
+ text-decoration: none; margin-block-start: var(--space-m);
+ }
+ .video-card:hover {
+ box-shadow: 0 12px 40px rgba(17,24,39,0.15);
+ transform: translateY(-4px);
+ }
+ .video-card-thumb {
+ position: relative; aspect-ratio: 16/9; overflow: hidden;
+ }
+ .video-card-thumb img {
+ width: 100%; height: 100%; object-fit: cover;
+ transition: transform var(--dur-slow) var(--ease-out);
+ }
+ .video-card:hover .video-card-thumb img { transform: scale(1.05); }
+ .video-card-play {
+ position: absolute; inset: 0;
+ display: flex; align-items: center; justify-content: center;
+ background: rgba(0,0,0,0.25);
+ transition: background var(--dur-fast);
+ }
+ .video-card:hover .video-card-play { background: rgba(0,0,0,0.15); }
+ .video-card-play svg {
+ width: 64px; height: 64px;
+ filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+ }
+ .video-card-body {
+ padding: var(--space-m);
+ display: flex; align-items: center; gap: var(--space-s);
+ }
+ .video-card-body span {
+ font-family: var(--font-display); font-size: var(--s0);
+ font-weight: 700; color: var(--white);
+ }
+ .video-card-body small {
+ font-size: var(--s0); color: var(--neutral-400); font-weight: 500;
+ }
+ .testimonial-card {
+ background: var(--surface-alt); border-radius: 1.25rem;
+ padding: var(--space-l); margin-block-start: var(--space-l);
+ position: relative;
+ }
+ .testimonial-card::before {
+ content: '\201C'; font-family: var(--font-display);
+ font-size: var(--s5); color: var(--green-200);
+ position: absolute; top: 0.25rem; left: var(--space-m); line-height: 1;
+ }
+ .testimonial-card blockquote {
+ font-size: var(--s0); color: var(--text-secondary);
+ font-style: italic; line-height: 1.7; padding-inline-start: var(--space-l);
+ }
+ .testimonial-card cite {
+ display: block; margin-block-start: var(--space-s);
+ font-style: normal; font-weight: 600; color: var(--text-primary);
+ font-size: var(--s0); padding-inline-start: var(--space-l);
+ }
+ .rooms {
+ padding-block: var(--space-4xl);
+ background: linear-gradient(160deg, var(--blue-50) 0%, var(--white) 100%);
+ }
+ .rooms-category { margin-block-end: var(--space-2xl); }
+ .rooms-category:last-child { margin-block-end: 0; }
+ .rooms-category > h3 { text-align: center; margin-block-end: var(--space-l); color: var(--blue-700); }
+ .rooms-locations {
+ display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+ gap: var(--space-m);
+ }
+ .location-card {
+ background: var(--white); border-radius: 1.25rem; overflow: hidden;
+ box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+ transition: box-shadow var(--dur-normal) var(--ease-out), transform var(--dur-normal) var(--ease-out);
+ }
+ .location-card:hover { box-shadow: 0 12px 40px rgba(17,24,39,0.08); transform: translateY(-4px); }
+ .location-card-img { aspect-ratio: 16/10; overflow: hidden; background: var(--neutral-200); }
+ .location-card-img img { width: 100%; height: 100%; object-fit: cover; }
+ .location-card-body { padding: var(--space-m); }
+ .location-card-body h4 { font-size: var(--s0); text-transform: none; letter-spacing: 0; color: var(--neutral-900); }
+ .location-tag {
+ display: inline-block; font-size: var(--s0); font-weight: 600;
+ padding: 0.2rem 0.75rem; border-radius: 100px; margin-block-start: var(--space-xs);
+ }
+ .tag--church { background: var(--blue-100); color: var(--blue-700); }
+ .tag--school { background: var(--green-100); color: var(--green-700); }
+ .training {
+ padding-block: var(--space-4xl);
+ background: var(--white);
+ }
+ .training-grid {
+ display: grid; grid-template-columns: 1fr 1fr;
+ gap: var(--space-2xl); align-items: center;
+ }
+ @media (max-width: 900px) { .training-grid { grid-template-columns: 1fr; } }
+ .training-content h4 { color: var(--yellow-600); margin-block-end: var(--space-xs); }
+ .training-content h2 { color: var(--neutral-900); margin-block-end: var(--space-l); }
+ .training-content p { font-size: var(--s1); color: var(--text-secondary); line-height: 1.7; }
+ .training-content p + p { margin-block-start: var(--space-m); }
+ .training-quote {
+ background: linear-gradient(135deg, var(--yellow-50) 0%, var(--white) 100%);
+ border-radius: 1.5rem; padding: var(--space-xl); border-left: 5px solid var(--yellow-300);
+ }
+ .training-quote blockquote {
+ font-family: var(--font-display); font-size: var(--s2); font-weight: 600;
+ color: var(--neutral-800); line-height: 1.5;
+ }
+ .training-quote cite {
+ display: block; margin-block-start: var(--space-m);
+ font-style: normal; font-size: var(--s0); color: var(--text-secondary); font-weight: 500;
+ }
+ .impact {
+ padding-block: var(--space-4xl);
+ background: linear-gradient(160deg, var(--green-900) 0%, var(--blue-900) 100%);
+ color: var(--white);
+ }
+ .impact .section-header h4 { color: var(--green-200); }
+ .impact .section-header h2 { color: var(--white); }
+ .impact .section-header p { color: rgba(255,255,255,0.55); }
+ .impact-grid {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: var(--gap);
+ }
+ @media (max-width: 700px) {
+ .impact-grid { grid-template-columns: repeat(2, 1fr); }
+ }
+ .stat {
+ text-align: center;
+ padding: var(--space-l) var(--space-s);
+ }
+ .stat-number {
+ font-family: var(--font-display);
+ font-size: clamp(var(--s4), 6vw, var(--s6));
+ font-weight: 800;
+ letter-spacing: -0.04em;
+ line-height: 1;
+ margin-block-end: var(--space-xs);
+ background: linear-gradient(135deg, var(--green-200), var(--blue-200));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+ }
+ .stat-label {
+ font-size: var(--s0); font-weight: 600;
+ color: rgba(255,255,255,0.6);
+ text-transform: uppercase;
+ letter-spacing: 0.06em;
+ }
+ .stat + .stat { border-inline-start: 1px solid rgba(255,255,255,0.1); }
+ @media (max-width: 700px) {
+ .stat:nth-child(odd) { border-inline-start: none; }
+ }
+ .impact-details {
+ margin-block-start: var(--space-2xl);
+ display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-l);
+ }
+ @media (max-width: 700px) { .impact-details { grid-template-columns: 1fr; } }
+ .impact-detail-card {
+ background: rgba(255,255,255,0.06); border-radius: 1.25rem;
+ padding: var(--space-l); border: 1px solid rgba(255,255,255,0.08);
+ }
+ .impact-detail-card h3 { font-size: var(--s2); color: var(--white); margin-block-end: var(--space-s); }
+ .impact-detail-card p { font-size: var(--s0); color: rgba(255,255,255,0.55); line-height: 1.65; }
+ .story {
+ padding-block: var(--space-4xl);
+ background: var(--white);
+ }
+ .story-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: var(--space-2xl);
+ align-items: center;
+ }
+ @media (max-width: 900px) {
+ .story-grid { grid-template-columns: 1fr; }
+ }
+ .story-photo {
+ border-radius: 1.5rem;
+ overflow: hidden;
+ aspect-ratio: 4/3;
+ background: var(--neutral-200);
+ box-shadow:
+ 0 0 0 5px rgba(142,183,225,0.12),
+ 0 24px 56px rgba(17,24,39,0.1);
+ }
+ .story-photo img { width: 100%; height: 100%; object-fit: cover; }
+ .story-content { max-inline-size: var(--measure); }
+ .story-content h4 { color: var(--blue-500); margin-block-end: var(--space-xs); }
+ .story-content h2 { color: var(--neutral-900); margin-block-end: var(--space-l); }
+ .story-content p {
+ color: var(--text-secondary);
+ font-size: var(--s1);
+ line-height: 1.7;
+ }
+ .story-content p + p { margin-block-start: var(--space-m); }
+ .story-content .btn { margin-block-start: var(--space-xl); }
+ .team {
+ padding-block: var(--space-3xl);
+ background: var(--surface-alt);
+ }
+ .team-grid {
+ display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-l);
+ }
+ @media (max-width: 700px) { .team-grid { grid-template-columns: 1fr; max-inline-size: 400px; margin-inline: auto; } }
+ .team-card {
+ background: var(--white); border-radius: 1.5rem; overflow: hidden;
+ text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+ }
+ .team-card-photo { aspect-ratio: 1; overflow: hidden; background: var(--neutral-200); }
+ .team-card-photo img { width: 100%; height: 100%; object-fit: cover; }
+ .team-card-body { padding: var(--space-l) var(--space-m); }
+ .team-card-body h3 { font-size: var(--s2); margin-block-end: var(--space-2xs); }
+ .team-card-body .role { font-size: var(--s0); color: var(--green-600); font-weight: 600; }
+ .team-card-body p { font-size: var(--s0); color: var(--text-secondary); margin-block-start: var(--space-s); line-height: 1.65; }
+ .team-card-body a {
+ font-size: var(--s0); color: var(--blue-500); font-weight: 600;
+ text-decoration: none; display: inline-block; margin-block-start: var(--space-s);
+ }
+ .team-card-body a:hover { text-decoration: underline; }
+ .partners {
+ padding-block: var(--space-3xl); background: var(--white); text-align: center;
+ }
+ .partners h4 { color: var(--blue-500); margin-block-end: var(--space-xs); }
+ .partners h2 { color: var(--neutral-900); margin-block-end: var(--space-xl); }
+ .partner-list {
+ display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-s);
+ max-inline-size: 960px; margin-inline: auto;
+ }
+ .partner-pill {
+ display: inline-flex; align-items: center; padding: 0.6rem 1.5rem;
+ background: var(--surface-alt); border-radius: 100px;
+ font-size: var(--s0); font-weight: 500; color: var(--text-secondary);
+ border: 1px solid var(--neutral-200);
+ }
+ .gallery {
+ padding-block: var(--space-3xl);
+ background: var(--surface-alt);
+ }
+ .gallery-grid {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: var(--space-xs);
+ border-radius: 1.5rem;
+ overflow: hidden;
+ }
+ @media (max-width: 700px) {
+ .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+ }
+ .gallery-item {
+ aspect-ratio: 1; overflow: hidden;
+ background: var(--neutral-200);
+ }
+ .gallery-item img {
+ width: 100%; height: 100%; object-fit: cover;
+ transition: transform var(--dur-slow) var(--ease-out);
+ }
+ .gallery-item:hover img { transform: scale(1.06); }
+ .donate {
+ padding-block: var(--space-4xl);
+ background: linear-gradient(160deg, var(--blue-800) 0%, var(--green-800) 100%);
+ color: var(--white);
+ text-align: center;
+ }
+ .donate h4 { color: var(--green-200); margin-block-end: var(--space-xs); }
+ .donate h2 {
+ color: var(--white); margin-block-end: var(--space-m);
+ }
+ .donate-body {
+ font-size: var(--s1); color: rgba(255,255,255,0.65);
+ max-inline-size: 48ch; margin-inline: auto;
+ margin-block-end: var(--space-xl);
+ }
+ .amount-grid {
+ display: flex; flex-wrap: wrap;
+ justify-content: center; gap: var(--space-xs);
+ margin-block-end: var(--space-xl);
+ }
+ .amount-btn {
+ padding: 0.85rem 1.75rem;
+ font-family: var(--font-display);
+ font-size: var(--s1); font-weight: 700;
+ background: rgba(255,255,255,0.08);
+ color: var(--white);
+ border: 3px solid rgba(255,255,255,0.2);
+ border-radius: 100px; cursor: pointer;
+ transition: all var(--dur-fast);
+ min-height: 56px;
+ letter-spacing: -0.01em;
+ }
+ .amount-btn:hover, .amount-btn.is-active {
+ background: var(--green-300);
+ color: var(--green-900);
+ border-color: var(--green-300);
+ }
+ .amount-btn.is-active {
+ box-shadow: 0 6px 20px rgba(123,197,117,0.35);
+ }
+ .donate .btn-group { justify-content: center; margin-block-end: var(--space-l); }
+ .donate-transparency {
+ font-size: var(--s0); color: rgba(255,255,255,0.45);
+ }
+ .donate-transparency svg { display: inline; vertical-align: middle; margin-inline-end: 0.3rem; }
+ .contact {
+ padding-block: var(--space-3xl); background: var(--surface-alt);
+ }
+ .contact-grid {
+ display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-l);
+ }
+ @media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } }
+ .contact-card {
+ background: var(--white); border-radius: 1.25rem; padding: var(--space-l);
+ text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+ }
+ .contact-card h3 { font-size: var(--s2); margin-block-end: var(--space-2xs); }
+ .contact-card .role { font-size: var(--s0); color: var(--green-600); font-weight: 600; }
+ .contact-card a {
+ display: block; margin-block-start: var(--space-s);
+ font-size: var(--s0); color: var(--blue-500); text-decoration: none; font-weight: 600;
+ }
+ .contact-card a:hover { text-decoration: underline; }
+ .site-footer {
+ padding-block: var(--space-2xl) var(--space-xl);
+ background: var(--neutral-900);
+ color: var(--neutral-300);
+ }
+ .footer-top {
+ display: grid;
+ grid-template-columns: 2fr repeat(3, 1fr);
+ gap: var(--space-xl);
+ padding-block-end: var(--space-xl);
+ border-block-end: 1px solid rgba(255,255,255,0.08);
+ }
+ @media (max-width: 700px) {
+ .footer-top { grid-template-columns: 1fr 1fr; }
+ }
+ .footer-brand p {
+ font-size: var(--s0); line-height: 1.7;
+ max-inline-size: 36ch;
+ margin-block-start: var(--space-s);
+ }
+ .footer-brand img { height: 36px; width: auto; }
+ .footer-col h4 {
+ font-family: var(--font-display);
+ color: var(--neutral-100);
+ margin-block-end: var(--space-s);
+ font-size: var(--s0);
+ }
+ .footer-col a {
+ display: block; padding-block: 0.3rem;
+ font-size: var(--s0); text-decoration: none;
+ color: var(--neutral-400);
+ transition: color var(--dur-fast);
+ }
+ .footer-col a:hover { color: var(--green-300); }
+ .footer-bottom {
+ display: flex; flex-wrap: wrap;
+ justify-content: space-between; align-items: center;
+ gap: var(--space-s);
+ padding-block-start: var(--space-l);
+ font-size: var(--s0); color: var(--neutral-500);
+ }
+ .footer-bottom a { color: var(--neutral-400); text-decoration: none; }
+ .footer-bottom a:hover { color: var(--green-300); }
+ </style>
+</head>
+<body>
+ <a href="#main" class="skip-link">Skip to main content</a>
+ <header class="site-header">
+ <div class="container header-inner">
+ <a href="/" class="logo-link" aria-label="The Synapsory — Home">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/03/The-Synapsory-Logo-Alligned-1024x420.png"
+ alt="The Synapsory logo"
+ width="1024" height="420"
+ style="height:44px;width:auto;">
+ </a>
+ <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Menu">
+ <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+ </button>
+ <nav>
+ <ul id="main-nav" class="main-nav" role="list" aria-label="Primary">
+ <li><a href="#about">About Us</a></li>
+ <li><a href="#services">Programs</a></li>
+ <li><a href="#training">Training</a></li>
+ <li><a href="#impact">Impact</a></li>
+ <li><a href="#gallery">Community</a></li>
+ <li><a href="#contact">Contact</a></li>
+ </ul>
+ </nav>
+ <div>
+ <a href="https://donorbox.org/the-synapsory" class="btn btn--green" target="_blank" rel="noopener">Donate</a>
+ </div>
+ </div>
+ </header>
+ <main id="main">
+ <section class="hero" aria-labelledby="hero-heading">
+ <div class="container hero-grid">
+ <div class="hero-content">
+ <p class="hero-eyebrow">501(c)(3) Nonprofit</p>
+ <h1 id="hero-heading">Every family deserves <span class="green">rest,</span> <span class="blue">regulation</span> & renewal</h1>
+ <p class="hero-body">We build sensory rooms, deliver calming kits, and train professionals — so families of children with specific needs can thrive.</p>
+ <div class="btn-group">
+ <a href="https://donorbox.org/the-synapsory" class="btn btn--green" target="_blank" rel="noopener">Give Today</a>
+ <a href="#services" class="btn btn--outline">Our Programs</a>
+ </div>
+ </div>
+ <div class="hero-image-wrapper">
+ <img src="https://thesynapsory.org/wp-content/uploads/2021/04/LiveDifferently-449-scaled-e1620323186662-1024x1024.jpg"
+ alt="A child smiling while exploring a calming sensory environment"
+ width="1024" height="1024"
+ fetchpriority="high">
+ <div class="hero-stat-badge">
+ <strong>500+</strong>
+ <span>Calming kits delivered</span>
+ </div>
+ </div>
+ </div>
+ </section>
+ <div class="proof-bar">
+ <div class="container proof-bar-inner">
+ <div class="proof-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+ IRS-recognized 501(c)(3)
+ </div>
+ <div class="proof-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+ Serving families since 2017
+ </div>
+ <div class="proof-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+ Tax ID: 82-0992585
+ </div>
+ </div>
+ </div>
+ <section class="problem" aria-labelledby="problem-heading">
+ <div class="container problem-inner">
+ <h4>Why It Matters</h4>
+ <h2 id="problem-heading">1 in 6 children have a developmental disability</h2>
+ <p class="problem-body">
+ Families raising children with sensory processing challenges, autism, ADHD, and other specific needs often lack access to the tools and environments that help their children self-regulate. Without support, everyday moments become overwhelming — for the child and the whole family.
+ </p>
+ </div>
+ </section>
+ <section style="padding-block:var(--space-2xl);background:var(--white);" aria-label="Watch our video">
+ <div class="container" style="max-inline-size:720px;">
+ <a href="https://vimeo.com/1127776212/27d5f65836?fl=pl&fe=vl" class="video-card" target="_blank" rel="noopener">
+ <div class="video-card-thumb">
+ <img src="https://i.vimeocdn.com/video/2070598478-1f45da38af517e3bef2d2427a646de6d876bbf726a3fc4b84d73a2cbb4f70a52-d_1280x720"
+ alt="Watch The Synapsory video" width="1280" height="720" loading="lazy">
+ <div class="video-card-play">
+ <svg viewBox="0 0 80 80" fill="none">
+ <circle cx="40" cy="40" r="38" fill="rgba(255,255,255,0.95)" stroke="none"/>
+ <path d="M33 25 L57 40 L33 55Z" fill="var(--green-600)"/>
+ </svg>
+ </div>
+ </div>
+ <div class="video-card-body">
+ <span>Watch Our Story</span>
+ <small>on Vimeo</small>
+ </div>
+ </a>
+ </div>
+ </section>
+ <section class="services" id="services" aria-labelledby="services-heading">
+ <div class="container">
+ <div class="section-header">
+ <h4>Our Programs</h4>
+ <h2 id="services-heading">Three pillars of support</h2>
+ <p>Practical tools, purpose-built spaces, and professional knowledge — delivered where families need them most.</p>
+ </div>
+ <div class="services-grid">
+ <article class="service-card card-green">
+ <div class="service-card-img">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/03/IMPACTING-OUR-COMMUNITY-Image.jpg"
+ alt="A colorful calming kit filled with sensory tools for children"
+ width="800" height="500" loading="lazy">
+ </div>
+ <div class="service-card-body">
+ <h3>Calming Kits</h3>
+ <p>Curated sensory tools — fidgets, weighted items, noise-canceling headphones — delivered directly to families so children can self-regulate during overwhelming moments.</p>
+ <a href="#kits" class="btn btn--green">Learn More</a>
+ </div>
+ </article>
+ <article class="service-card card-blue">
+ <div class="service-card-img">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/03/Impacting-Community-Ribbon-Cutting.png"
+ alt="Ribbon cutting ceremony at a new Synapsory sensory room"
+ width="800" height="500" loading="lazy">
+ </div>
+ <div class="service-card-body">
+ <h3>Sensory Rooms</h3>
+ <p>Purpose-built multi-sensory environments in schools and community centers, designed for regulation and renewal. Each room is tailored to its community.</p>
+ <a href="#rooms" class="btn btn--blue">Learn More</a>
+ </div>
+ </article>
+ <article class="service-card card-mixed">
+ <div class="service-card-img">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/03/IMPACTING-OUR-COMMUNITY-3.jpg"
+ alt="Professionals participating in a Synapsory training session"
+ width="800" height="500" loading="lazy">
+ </div>
+ <div class="service-card-body">
+ <h3>Training</h3>
+ <p>Professional development for educators, therapists, and caregivers on sensory processing, trauma-informed care, and building inclusive environments.</p>
+ <a href="#training" class="btn btn--dark">Learn More</a>
+ </div>
+ </article>
+ </div>
+ </div>
+ </section>
+ <section class="donate" aria-labelledby="donate-heading-top">
+ <div class="container">
+ <h4>Support The Synapsory</h4>
+ <h2 id="donate-heading-top">Help a family find calm today</h2>
+ <p class="donate-body">Every donation delivers calming kits, builds sensory rooms, and trains the professionals who change lives.</p>
+ <div class="amount-grid">
+ <button class="amount-btn" type="button">$25</button>
+ <button class="amount-btn is-active" type="button">$50</button>
+ <button class="amount-btn" type="button">$100</button>
+ <button class="amount-btn" type="button">$250</button>
+ <button class="amount-btn" type="button">Other</button>
+ </div>
+ <div class="btn-group">
+ <a href="https://donorbox.org/the-synapsory" class="btn btn--green" target="_blank" rel="noopener">Give Now</a>
+ <a href="https://donorbox.org/the-synapsory" class="btn btn--outline-light" target="_blank" rel="noopener">Give Monthly</a>
+ </div>
+ <p class="donate-transparency">
+ <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+ The Synapsory is a 501(c)(3) public charity. Your donation is tax-deductible.
+ </p>
+ </div>
+ </section>
+ <section id="kits" class="kits-detail" aria-labelledby="kits-heading">
+ <div class="container kits-grid">
+ <div>
+ <h4 style="color:var(--green-500);font-size:var(--s1);font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-block-end:var(--space-xs);">Calming Kits</h4>
+ <h2 id="kits-heading" style="margin-block-end:var(--space-l);">Tools for regulation, ready to go</h2>
+ <p style="font-size:var(--s1);color:var(--text-secondary);line-height:1.7;margin-block-end:var(--space-l);">
+ Every calming kit is thoughtfully assembled with sensory tools that help children self-regulate — at home, at school, in the car, or in the community.
+ </p>
+ <div class="product-card">
+ <h3>Synapsory Snuggles</h3>
+ <div class="product-price">$120</div>
+ <p>Our premium kit with a weighted stuffed animal, fidget tools, noise-cancelling headphones, and a visual emotion chart. Designed for comprehensive home support.</p>
+ </div>
+ <div class="product-card">
+ <h3>Calming Kits</h3>
+ <div class="product-price">$75</div>
+ <p>A portable collection of essential sensory items — perfect for on-the-go families, first responders, and community organizations.</p>
+ </div>
+ <div style="margin-block-start:var(--space-xl);">
+ <a href="https://donorbox.org/the-synapsory" class="btn btn--green" target="_blank" rel="noopener">Order a Kit</a>
+ </div>
+ </div>
+ <div>
+ <div class="kit-images">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/03/SynapsoryCalmingKit-wide-1024x576.png"
+ alt="Synapsory calming kit contents displayed" width="1024" height="576" loading="lazy">
+ <div class="kit-images-row">
+ <img src="https://thesynapsory.org/wp-content/uploads/2021/05/SynapsoryBlanket_1920x1080-1024x576.png"
+ alt="Synapsory weighted blanket for calming" width="1024" height="576" loading="lazy">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/03/IMPACTING-OUR-COMMUNITY-3.jpg"
+ alt="Community members receiving calming kits" width="800" height="600" loading="lazy">
+ </div>
+ </div>
+ <div class="testimonial-card">
+ <blockquote>
+ Having these tools at home has changed our daily routine. My son can now self-regulate during transitions that used to cause meltdowns.
+ </blockquote>
+ <cite>— Parent of kit recipient</cite>
+ </div>
+ </div>
+ </div>
+ </section>
+ <section id="rooms" class="rooms" aria-labelledby="rooms-heading">
+ <div class="container">
+ <div class="section-header">
+ <h4 style="color:var(--blue-500);">Sensory &amp; Motor Rooms</h4>
+ <h2 id="rooms-heading">Safe spaces for every child</h2>
+ <p>We design, fund, and build sensory and motor rooms in churches, schools, and community spaces across the St. Louis area and beyond.</p>
+ </div>
+ <div class="rooms-category">
+ <h3>Church Installations</h3>
+ <div class="rooms-locations">
+ <article class="location-card">
+ <div class="location-card-img">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/08/Pathfinder_Church_IMG_3765-1024x768.jpeg" alt="Sensory room at Pathfinder Church" width="1024" height="768" loading="lazy">
+ </div>
+ <div class="location-card-body">
+ <h4>Pathfinder Church</h4>
+ <span class="location-tag tag--church">Church</span>
+ </div>
+ </article>
+ <article class="location-card">
+ <div class="location-card-img">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/08/Newsong_Church_IMG_1737-1024x683.jpg" alt="Sensory room at Newsong Church" width="1024" height="683" loading="lazy">
+ </div>
+ <div class="location-card-body">
+ <h4>Newsong Church</h4>
+ <span class="location-tag tag--church">Church</span>
+ </div>
+ </article>
+ <article class="location-card">
+ <div class="location-card-img">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/08/gateway61_IMG_0236-1024x683.jpg" alt="Sensory room at gateway:61" width="1024" height="683" loading="lazy">
+ </div>
+ <div class="location-card-body">
+ <h4>gateway:61</h4>
+ <span class="location-tag tag--church">Church</span>
+ </div>
+ </article>
+ </div>
+ </div>
+ <div class="rooms-category">
+ <h3>School Installations</h3>
+ <div class="rooms-locations">
+ <article class="location-card">
+ <div class="location-card-img">
+ <img src="https://thesynapsory.org/wp-content/uploads/2024/11/Gateway-Stem-High-School1.jpeg" alt="Motor room at Gateway STEM High School" width="1024" height="768" loading="lazy">
+ </div>
+ <div class="location-card-body">
+ <h4>Gateway STEM High School</h4>
+ <span class="location-tag tag--school">School</span>
+ </div>
+ </article>
+ <article class="location-card">
+ <div class="location-card-img">
+ <img src="https://thesynapsory.org/wp-content/uploads/2024/11/Brown-Elementary-School.jpeg" alt="Sensory space at Brown Elementary" width="1024" height="768" loading="lazy">
+ </div>
+ <div class="location-card-body">
+ <h4>Brown Elementary</h4>
+ <span class="location-tag tag--school">School</span>
+ </div>
+ </article>
+ <article class="location-card">
+ <div class="location-card-img">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/03/Sensory-Motor-Room-Young-Innovators-Academy.jpg" alt="Sensory motor room at Young Innovators Academy" width="1024" height="768" loading="lazy">
+ </div>
+ <div class="location-card-body">
+ <h4>Young Innovators Academy</h4>
+ <span class="location-tag tag--school">School</span>
+ </div>
+ </article>
+ </div>
+ </div>
+ </div>
+ </section>
+ <section id="training" class="training" aria-labelledby="training-heading">
+ <div class="container training-grid">
+ <div class="training-content">
+ <h4>Training &amp; Certification</h4>
+ <h2 id="training-heading">Help us end social isolation</h2>
+ <p>Our training program equips professionals, caregivers, and volunteers with the knowledge and skills to support children with developmental disabilities. Through our online certification platform, anyone can learn sensory-informed practices at their own pace.</p>
+ <p>Whether you're a teacher, first responder, church volunteer, or parent — our training gives you practical tools you can use immediately.</p>
+ <div class="btn-group" style="margin-block-start:var(--space-xl);">
+ <a href="https://syna-s-school-6aed.thinkific.com/" class="btn btn--yellow" target="_blank" rel="noopener">Get Certified on Thinkific</a>
+ </div>
+ </div>
+ <div>
+ <div class="training-quote">
+ <blockquote>
+ "We invite the community to come alongside us as we support the 1 in 6 families in the United States living with a child with a developmental disability. Together we can create a world of belonging."
+ </blockquote>
+ <cite>— Terrie Desloge, Founder</cite>
+ </div>
+ </div>
+ </div>
+ </section>
+ <section class="impact" id="impact" aria-labelledby="impact-heading">
+ <div class="container">
+ <div class="section-header">
+ <h4>Our Impact</h4>
+ <h2 id="impact-heading">Real change, measured</h2>
+ <p>Every number represents a family, a child, a community transformed.</p>
+ </div>
+ <div class="impact-grid">
+ <div class="stat">
+ <div class="stat-number">500+</div>
+ <div class="stat-label">Calming Kits</div>
+ </div>
+ <div class="stat">
+ <div class="stat-number">20+</div>
+ <div class="stat-label">Sensory Rooms</div>
+ </div>
+ <div class="stat">
+ <div class="stat-number">20+</div>
+ <div class="stat-label">Police Depts</div>
+ </div>
+ <div class="stat">
+ <div class="stat-number">1 in 6</div>
+ <div class="stat-label">Families Affected</div>
+ </div>
+ </div>
+ <div class="impact-details">
+ <div class="impact-detail-card">
+ <h3>Law Enforcement</h3>
+ <p>Over 500 calming kits delivered to 20+ police departments across the St. Louis area, equipping first responders with sensory tools for encounters with children in crisis.</p>
+ </div>
+ <div class="impact-detail-card">
+ <h3>Hospital Programs</h3>
+ <p>Partnered with St. Louis Children's Hospital and Mercy Children's Hospital to bring sensory support into clinical settings where families need it most.</p>
+ </div>
+ </div>
+ </div>
+ </section>
+ <section class="story" id="about" aria-labelledby="story-heading">
+ <div class="container story-grid">
+ <div class="story-photo">
+ <img src="https://thesynapsory.org/wp-content/uploads/2020/11/our-story@2x-818x1024.jpg"
+ alt="The Synapsory founding story"
+ width="818" height="1024" loading="lazy">
+ </div>
+ <div class="story-content">
+ <h4>Our Story</h4>
+ <h2 id="story-heading">We are the connection</h2>
+ <p>Our name comes from the synapse — the connection point between neurons. We see ourselves as that bridge between families and the sensory support they need.</p>
+ <p>The Synapsory was founded by Terrie Desloge after her experience raising her daughter Faith, who has a developmental disability. Terrie saw firsthand how isolating it can be for families when communities aren't equipped to include children with specific needs.</p>
+ <p>What started with a handful of calming kits has grown into a movement spanning sensory rooms, professional training, and a community of partners across the St. Louis area.</p>
+ <a href="#team" class="btn btn--blue">Meet Our Team</a>
+ </div>
+ </div>
+ </section>
+ <section id="team" class="team" aria-labelledby="team-heading">
+ <div class="container">
+ <div class="section-header">
+ <h4 style="color:var(--blue-500);">Our Team</h4>
+ <h2 id="team-heading">The people behind the mission</h2>
+ </div>
+ <div class="team-grid">
+ <div class="team-card">
+ <div class="team-card-photo">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/03/Terrie-Desloge-Image.jpg" alt="Terrie Desloge, Founder" width="800" height="800" loading="lazy">
+ </div>
+ <div class="team-card-body">
+ <h3>Terrie Desloge</h3>
+ <span class="role">Founder</span>
+ <p>Mother of Faith, passionate advocate for families of children with developmental disabilities.</p>
+ <a href="mailto:terrie@thesynapsory.org">terrie@thesynapsory.org</a>
+ </div>
+ </div>
+ <div class="team-card">
+ <div class="team-card-photo">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/03/Tom-Desloge-Image.jpg" alt="Tom Desloge, Operations" width="800" height="800" loading="lazy">
+ </div>
+ <div class="team-card-body">
+ <h3>Tom Desloge</h3>
+ <span class="role">Operations</span>
+ <p>Ensuring kits get delivered, rooms get built, and families get the support they need.</p>
+ <a href="mailto:tom@thesynapsory.org">tom@thesynapsory.org</a>
+ </div>
+ </div>
+ <div class="team-card">
+ <div class="team-card-photo">
+ <img src="https://thesynapsory.org/wp-content/uploads/2025/04/jordan_mette.jpg" alt="Jordan Salazar, Executive Director" width="800" height="800" loading="lazy">
+ </div>
+ <div class="team-card-body">
+ <h3>Jordan Salazar</h3>
+ <span class="role">Executive Director</span>
+ <p>Leading The Synapsory's strategic growth and community partnerships.</p>
+ <a href="mailto:jordan@thesynapsory.org">jordan@thesynapsory.org</a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ <section class="partners" aria-labelledby="partners-heading">
+ <div class="container">
+ <h4>Community Partners</h4>
+ <h2 id="partners-heading">Together we go further</h2>
+ <div class="partner-list">
+ <span class="partner-pill">Cardinals Care</span>
+ <span class="partner-pill">St. Louis Children's Hospital</span>
+ <span class="partner-pill">St. Louis County Police</span>
+ <span class="partner-pill">Mercy Children's Hospital</span>
+ <span class="partner-pill">Cardinal Glennon Children's Hospital</span>
+ <span class="partner-pill">Shriners Children's Hospital</span>
+ <span class="partner-pill">The Little Bit Foundation</span>
+ <span class="partner-pill">Missouri History Museum</span>
+ <span class="partner-pill">Girl Scouts of Eastern Missouri</span>
+ <span class="partner-pill">Crisis Nursery</span>
+ <span class="partner-pill">Family Forward</span>
+ <span class="partner-pill">Dana Brown Charitable Trust</span>
+ <span class="partner-pill">Breakroom Concerts</span>
+ </div>
+ </div>
+ </section>
+ <section class="gallery" id="gallery" aria-label="Community photos">
+ <div class="container">
+ <div class="section-header">
+ <h4>Our Community</h4>
+ <h2>Impacting families, one connection at a time</h2>
+ </div>
+ <div class="gallery-grid">
+ <div class="gallery-item">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/03/IMPACTING-OUR-COMMUNITY-Image.jpg"
+ alt="Community impact — calming kit delivery" width="400" height="400" loading="lazy">
+ </div>
+ <div class="gallery-item">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/08/Pathfinder_Church_IMG_3781-1024x768.jpeg"
+ alt="Sensory room at Pathfinder Church" width="1024" height="768" loading="lazy">
+ </div>
+ <div class="gallery-item">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/08/gateway61_LiveDifferently-105-1024x700.jpg"
+ alt="Children at gateway:61 sensory room" width="1024" height="700" loading="lazy">
+ </div>
+ <div class="gallery-item">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/03/IMPACTING-OUR-COMMUNITY-2.jpg"
+ alt="Community impact — families together" width="400" height="400" loading="lazy">
+ </div>
+ <div class="gallery-item">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/08/Newsong_Church_IMG_1660-683x1024.jpg"
+ alt="Newsong Church sensory room" width="683" height="1024" loading="lazy">
+ </div>
+ <div class="gallery-item">
+ <img src="https://thesynapsory.org/wp-content/uploads/2024/11/Gateway-Stem-High-School2.jpeg"
+ alt="Gateway STEM motor room" width="1024" height="768" loading="lazy">
+ </div>
+ <div class="gallery-item">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/03/Young-innovators-preschool-ribbon-cutting.jpg"
+ alt="Young Innovators Academy ribbon cutting" width="800" height="600" loading="lazy">
+ </div>
+ <div class="gallery-item">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/03/Impacting-Community-Ribbon-Cutting.png"
+ alt="Community impact — sensory room opening" width="400" height="400" loading="lazy">
+ </div>
+ </div>
+ </div>
+ </section>
+ <section class="donate" id="donate" aria-labelledby="donate-heading">
+ <div class="container">
+ <h4>Support The Synapsory</h4>
+ <h2 id="donate-heading">Help a family find calm today</h2>
+ <p class="donate-body">Every donation delivers calming kits, builds sensory rooms, and trains the professionals who change lives.</p>
+ <div class="amount-grid">
+ <button class="amount-btn" type="button">$25</button>
+ <button class="amount-btn is-active" type="button">$50</button>
+ <button class="amount-btn" type="button">$100</button>
+ <button class="amount-btn" type="button">$250</button>
+ <button class="amount-btn" type="button">Other</button>
+ </div>
+ <div class="btn-group">
+ <a href="https://donorbox.org/the-synapsory" class="btn btn--green" target="_blank" rel="noopener">Give Now</a>
+ <a href="https://donorbox.org/the-synapsory" class="btn btn--outline-light" target="_blank" rel="noopener">Give Monthly</a>
+ </div>
+ <p class="donate-transparency">
+ <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+ The Synapsory is a 501(c)(3) public charity. Your donation is tax-deductible.
+ </p>
+ </div>
+ </section>
+ <section id="contact" class="contact" aria-labelledby="contact-heading">
+ <div class="container">
+ <div class="section-header">
+ <h4 style="color:var(--blue-500);">Get in Touch</h4>
+ <h2 id="contact-heading">We'd love to hear from you</h2>
+ </div>
+ <div class="contact-grid">
+ <div class="contact-card">
+ <h3>Terrie Desloge</h3>
+ <span class="role">Founder</span>
+ <a href="mailto:terrie@thesynapsory.org">terrie@thesynapsory.org</a>
+ </div>
+ <div class="contact-card">
+ <h3>Tom Desloge</h3>
+ <span class="role">Operations</span>
+ <a href="mailto:tom@thesynapsory.org">tom@thesynapsory.org</a>
+ </div>
+ <div class="contact-card">
+ <h3>Jordan Salazar</h3>
+ <span class="role">Executive Director</span>
+ <a href="mailto:jordan@thesynapsory.org">jordan@thesynapsory.org</a>
+ </div>
+ </div>
+ </div>
+ </section>
+ </main>
+ <footer class="site-footer">
+ <div class="container">
+ <div class="footer-top">
+ <div class="footer-brand">
+ <img src="https://thesynapsory.org/wp-content/uploads/2022/03/Synapsory-logo-no-tag-reverse-RGB-1024x390.png"
+ alt="The Synapsory" width="1024" height="390">
+ <p>Providing rest, regulation, and renewal for families of children with specific needs.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Programs</h4>
+ <a href="#kits">Calming Kits</a>
+ <a href="#rooms">Sensory Rooms</a>
+ <a href="https://syna-s-school-6aed.thinkific.com/" target="_blank" rel="noopener">Training</a>
+ </div>
+ <div class="footer-col">
+ <h4>About</h4>
+ <a href="#about">Our Story</a>
+ <a href="#team">Team</a>
+ <a href="#contact">Contact</a>
+ </div>
+ <div class="footer-col">
+ <h4>Get Involved</h4>
+ <a href="https://donorbox.org/the-synapsory" target="_blank" rel="noopener">Donate</a>
+ <a href="https://www.facebook.com/thesynapsory" target="_blank" rel="noopener">Facebook</a>
+ <a href="mailto:terrie@thesynapsory.org">Email Us</a>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <span>&copy; 2026 The Synapsory (Live Differently Ministries). 501(c)(3) &middot; Tax ID 82-0992585</span>
+ <a href="https://www.facebook.com/thesynapsory" target="_blank" rel="noopener" aria-label="The Synapsory on Facebook">
+ <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+ </a>
+ </div>
+ </div>
+ </footer>
+ <script>
+ const toggle = document.querySelector('.nav-toggle');
+ const nav = document.querySelector('#main-nav');
+ if (toggle && nav) {
+ toggle.addEventListener('click', () => {
+ const open = toggle.getAttribute('aria-expanded') === 'true';
+ toggle.setAttribute('aria-expanded', String(!open));
+ nav.classList.toggle('is-open');
+ });
+ }
+ document.querySelectorAll('.amount-btn').forEach(btn => {
+ btn.addEventListener('click', () => {
+ document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('is-active'));
+ btn.classList.add('is-active');
+ });
+ });
+ document.querySelectorAll('a[href^="#"]').forEach(link => {
+ link.addEventListener('click', e => {
+ const target = document.querySelector(link.getAttribute('href'));
+ if (target) {
+ e.preventDefault();
+ target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ if (nav && nav.classList.contains('is-open')) {
+ nav.classList.remove('is-open');
+ toggle.setAttribute('aria-expanded', 'false');
+ }
+ }
+ });
+ });
+ </script>
+</body>
+</html>
